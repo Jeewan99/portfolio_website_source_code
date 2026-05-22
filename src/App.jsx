@@ -18,21 +18,21 @@ import './App.css'
 function App() {
  const experiences = [
   {
-    title: "Senior Full-Stack Developer",
-    company: "Centralized Cloud Computing International, Inc.",
+    title: " Full-Stack Developer",
+    company: "working ...",
     year: "2025",
     current: true,
   },
   {
     title: "Junior Full-Stack Developer",
-    company: "Centralized Cloud Computing International, Inc.",
-    year: "2024",
+    company: "unknown International compny, Inc.",
+    year: "2023",
     current: false,
   },
   {
-    title: "Full-Stack Developer Intern",
-    company: "Centralized Cloud Computing International, Inc.",
-    year: "2024",
+    title: "React Developer Intern",
+    company: "unknown , Inc.",
+    year: "2022",
     current: false,
   },
 ];
@@ -74,13 +74,13 @@ const techData = [
 
 const eduData = [
   {
-    degree: "BS Computer Science",
-    school: "Technological University of the Philippines",
+    degree: "BSC. Computer Science And IT",
+    school: "TRIBHUVAN UNIVERSITY",
     year: "2020",
   },
   {
-    degree: "TVL - ICT (Mobile App & Web Development)",
-    school: "STI College Caloocan",
+    degree: "(Mobile App & Web Development)",
+    school: "Udemy",
     year: "2018",
   },
 ];
@@ -118,10 +118,10 @@ const projectData = [
   }
 ];
 const socials = [
-  { name: 'LinkedIn', handle: '@dsbalico', icon: <FaLinkedin size={20} />, url: '#' },
-  { name: 'GitHub', handle: '@dsbalico', icon: <FaGithub size={20} />, url: '#' },
-  { name: 'Instagram', handle: '@dsbalico', icon: <IoLogoInstagram size={20} />, url: '#' },
-  { name: 'Facebook', handle: '@dsbalico', icon: <FaFacebook size={20} />, url: '#' },
+  { name: 'LinkedIn', handle: '@jibantajpuriya', icon: <FaLinkedin size={20} />, url: 'https://www.linkedin.com/in/jiban-tajpuriya-82815a3a8 ' },
+  { name: 'GitHub', handle: '@jibantajpuriyaa', icon: <FaGithub size={20} />, url: 'https://github.com/jibantajpuriyaa' },
+  { name: 'Instagram', handle: '@zeeone', icon: <IoLogoInstagram size={20} />, url: 'https://www.instagram.com/zeeeone11/' },
+  { name: 'Facebook', handle: '@jibantajpuriya', icon: <FaFacebook size={20} />, url: 'https://www.facebook.com/jibantajpuriya.com.np' },
 ];
 
   return (
@@ -151,13 +151,7 @@ const socials = [
             </p>
           </div>
           
-          <div className="dark-mode-toggle">
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round"></span>
-            </label>
-            <span className="toggle-label">Dark Mode</span>
-          </div>
+        
         </div>
 
         <h2 className="profile-title">Full-Stack Software Engineer</h2>
@@ -183,6 +177,12 @@ const socials = [
           </div>
         </div>
       </div>
+
+
+
+
+
+
     </div></div>
     <div class="div2"><section className="about-card">
       <div className="about-header">
