@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;600;700&display=swap');
 
 :root {
   --primary-blue: #0066ff;
@@ -8,98 +8,78 @@
   --border-light: #eeeeee;
 }
 
+/* Base resets & Layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .mainui {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgb(250, 250, 250);
-  /* Added padding to the top of the whole section if needed */
-  padding-top: 20px; 
+  padding: 20px 0; 
+  min-height: 100vh;
 }
-/* ... keep your imports and :root variables exactly as they are ... */
 
 .parent {
-  margin-top: 20px; 
-  display: grid;
-  width: 60%;
-  grid-template-columns: repeat(5, 1fr);
-  /* CHANGE: Use grid-auto-rows so rows only take up the space they need */
-  grid-auto-rows: min-content; 
-  gap: 12px; /* Slightly increased gap for better bento-box separation */
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+} 
+
+/* Two-column wrapper */
+.main_body {
+  display: flex;
+  gap: 16px;
+  width: 100%;
 }
 
-/* Reusable class for the rounded corners */
-.parent > div {
+.rigntside, .leftside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card base styling */
+.about-card, 
+.tech-card, 
+.projects-card, 
+.exp-card, 
+.edu-card, 
+.cert-card, 
+.social-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+  height: auto; /* Let content control the height natively */
+}
+
+/* Profile Component */
+.div1 {
   border-radius: 16px;
   background-color: #ffffff;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
-  /* CHANGE: Ensure the div itself doesn't force a height */
-  height: fit-content; 
+  overflow: hidden;
+  z-index: 10;
 }
-
-/* REMOVED: grid-row: span X / span X 
-  We only keep the grid-column and the grid-row-start to maintain your horizontal order.
-  This allows the vertical height to be determined solely by the content.
-*/
-
-.div1 {
-  grid-column: span 5 / span 5;
-  grid-row-start: 1;
-}
-
-.div2 {
-  grid-column: span 3 / span 3;
-  grid-row-start: 2; 
-}
-
-.div4 {
-  grid-column: span 2 / span 2;
-  grid-column-start: 4;
-  grid-row-start: 2; 
-}
-
-.div5 {
-  grid-column: span 3 / span 3;
-  grid-column-start: 1;
-  grid-row-start: 3; 
-}
-
-.div6 {
-  grid-column: span 2 / span 2;
-  grid-column-start: 4;
-  grid-row-start: 3; 
-}
-
-.div7 {
-  grid-column: span 2 / span 2;
-  grid-column-start: 4;
-  grid-row-start: 4;
-}
-
-.div8 {
-  grid-column: span 3 / span 3;
-  grid-row-start: 4;
-}
-
-.div9 {
-  grid-column: span 2 / span 2;
-  grid-column-start: 4;
-  grid-row-start: 5;
-}
-
-/* ... keep all your other component styles (profile, about, tech-tag, etc.) exactly the same ... */
 
 .profile-container {
   display: flex;
   font-family: 'Inter', -apple-system, sans-serif;
   padding: 24px;
   background: var(--bg-white);
-  border-radius: 12px;
   gap: 24px;
-  max-width: 900px;
+  width: 100%;
 }
 
-/* Image Styles */
 .profile-image {
   width: 150px;
   height: 150px;
@@ -108,7 +88,6 @@
   background-color: #f0f0f0;
 }
 
-/* Content Layout */
 .profile-content {
   flex: 1;
 }
@@ -120,7 +99,6 @@
 }
 
 .profile-name {
-  margin: 0;
   font-size: 1.5rem;
   font-weight: 800;
   display: flex;
@@ -131,13 +109,21 @@
 .verify-badge {
   color: var(--primary-blue);
   font-size: 0.8rem;
-  
+}
+
+.bluetick {
+  width: auto;
+  margin-top: 4px;
+  height: 25px;
 }
 
 .profile-location {
   color: var(--text-gray);
   margin: 4px 0;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .profile-title {
@@ -145,18 +131,12 @@
   font-weight: 500;
   margin: 16px 0 24px 0;
 }
-.bluetick{
-  width: auto;
-  margin-top: 4px;
-  height: 25px;
 
-}
-
-/* Buttons and Actions */
 .profile-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .action-group {
@@ -193,7 +173,6 @@
   gap: 8px;
 }
 
-/* Segmented Focus Button */
 .focus-areas-container {
   display: flex;
   margin-left: auto;
@@ -211,6 +190,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 .focus-chevron {
@@ -219,62 +199,13 @@
   border: none;
   border-left: 1px solid rgba(255,255,255,0.3);
   padding: 0 10px;
-}
-
-/* Toggle Switch Styling */
-.dark-mode-toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 44px;
-  height: 22px;
-}
-
-.switch input { display: none; }
-
-.slider {
-  position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px; width: 18px;
-  left: 2px; bottom: 2px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider { background-color: var(--primary-blue); }
-input:checked + .slider:before { transform: translateX(22px); }
-
-.toggle-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-
-
-
+/* About Component */
 .about-card {
   font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  border-radius: 16px; /* Matches your previous curve request */
-  padding: 32px;
-  max-width: 700px;
   color: #1a1a1a;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle border/shadow effect */
 }
 
 .about-header {
@@ -287,16 +218,11 @@ input:checked + .slider:before { transform: translateX(22px); }
 .about-header h2 {
   font-size: 24px;
   font-weight: 700;
-  margin: 0;
-}
-
-.about-icon {
-  color: #1a1a1a;
 }
 
 .about-content p {
   font-size: 16px;
-  line-height: 1.6; /* Balanced line height for readability */
+  line-height: 1.6;
   color: #333333;
   margin-bottom: 20px;
   letter-spacing: -0.01em;
@@ -306,37 +232,25 @@ input:checked + .slider:before { transform: translateX(22px); }
   margin-bottom: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .about-card {
-    padding: 20px;
-  }
-}
-
-.exp-card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 20px;
+/* Experience & Education Timelines */
+.exp-card, .edu-card {
   font-family: 'Inter', sans-serif;
-  max-width: 450px;
 }
 
-.exp-header {
+.exp-header, .edu-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 30px;
 }
 
-.exp-header h2 {
+.exp-header h2, .edu-header h2 {
   font-size: 22px;
   font-weight: 700;
-  margin: 0;
 }
 
 .timeline-container {
   margin-left: 10px;
-  /* This creates the vertical line */
   border-left: 1px solid #e5e7eb; 
   padding-left: 25px;
   display: flex;
@@ -348,10 +262,9 @@ input:checked + .slider:before { transform: translateX(22px); }
   position: relative;
 }
 
-/* Positioning the circles on the line */
 .timeline-dot {
   position: absolute;
-  left: -31px; /* Centers dot perfectly on the 1px border */
+  left: -31px; 
   top: 6px;
   width: 10px;
   height: 10px;
@@ -369,47 +282,33 @@ input:checked + .slider:before { transform: translateX(22px); }
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 12px;
 }
 
 .text-group h3 {
   font-size: 18px;
   font-weight: 600;
-  margin: 0 0 6px 0;
   color: #000;
+  line-height: 1.3;
 }
 
-.company {
+.company, .school {
   font-size: 15px;
   color: #666;
-  margin: 0;
+  margin-top: 4px;
   line-height: 1.4;
-  max-width: 250px;
 }
 
 .year {
   font-size: 15px;
   color: #999;
   font-weight: 400;
+  white-space: nowrap;
 }
 
-/* Remove the line connector after the last item */
-.timeline-item:last-child::after {
-  content: "";
-  position: absolute;
-  left: -26px;
-  top: 15px;
-  width: 2px;
-  height: 100%;
-  background: #fff; /* Matches card background to "cut" the line */
-}
-
-
+/* Tech Stack Component */
 .tech-card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 20px;
   font-family: 'Inter', sans-serif;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .tech-header {
@@ -428,7 +327,6 @@ input:checked + .slider:before { transform: translateX(22px); }
 .header-left h2 {
   font-size: 20px;
   font-weight: 700;
-  margin: 0;
 }
 
 .view-all {
@@ -451,7 +349,7 @@ input:checked + .slider:before { transform: translateX(22px); }
 
 .tags-container {
   display: flex;
-  flex-wrap: wrap; /* Allows tags to jump to the next line */
+  flex-wrap: wrap; 
   gap: 10px;
 }
 
@@ -461,7 +359,7 @@ input:checked + .slider:before { transform: translateX(22px); }
   gap: 8px;
   padding: 6px 14px;
   border: 1px solid #f0f0f0;
-  border-radius: 50px; /* Makes them pill-shaped */
+  border-radius: 50px; 
   background-color: #fcfcfc;
   transition: all 0.2s ease;
 }
@@ -475,6 +373,7 @@ input:checked + .slider:before { transform: translateX(22px); }
   width: 16px;
   height: 16px;
   object-fit: contain;
+  filter: brightness(0) saturate(100%);
 }
 
 .tech-tag span {
@@ -482,100 +381,8 @@ input:checked + .slider:before { transform: translateX(22px); }
   font-weight: 500;
   color: #333;
 }
-.tech-tag img {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  /* This filter forces the image to turn black */
-  filter: brightness(0) saturate(100%);
-} 
 
-.edu-card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 20px;
-  font-family: 'Inter', sans-serif;
-}
-
-.edu-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
-}
-
-.edu-header h2 {
-  font-size: 22px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.timeline-container {
-  margin-left: 10px;
-  border-left: 1px solid #e5e7eb;
-  padding-left: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.timeline-item {
-  position: relative;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -31px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
-}
-
-.timeline-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.text-group h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 6px 0;
-  color: #000;
-  line-height: 1.2;
-}
-
-.school {
-  font-size: 15px;
-  color: #666;
-  margin: 0;
-  max-width: 280px;
-}
-
-.year {
-  font-size: 15px;
-  color: #999;
-}
-
-/* Cuts the line for the last item */
-.timeline-item:last-child::after {
-  content: "";
-  position: absolute;
-  left: -26px;
-  top: 15px;
-  width: 2px;
-  height: 100%;
-  background: #fff;
-}
-.cert-card {
-  background: white;
-  padding: 24px;
-  border-radius: 24px;
-}
-
+/* Certifications Component */
 .cert-header {
   display: flex;
   justify-content: space-between;
@@ -599,24 +406,21 @@ input:checked + .slider:before { transform: translateX(22px); }
 }
 
 .cert-item:hover { background: #f9fafb; }
-
 .cert-icon { color: #666; }
 
 .cert-info h3 {
   font-size: 16px;
   font-weight: 600;
-  margin: 0;
 }
 
 .cert-info p {
   font-size: 14px;
   color: #666;
-  margin: 2px 0 0 0;
+  margin-top: 2px;
 }
+
+/* Projects Component */
 .projects-card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 24px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -627,22 +431,16 @@ input:checked + .slider:before { transform: translateX(22px); }
   margin-bottom: 20px;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.header-left h2 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0;
-}
-
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-columns: 1fr; /* Safe stack format default inside columns */
   gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr; /* Splitted up for wide screens */
+  }
 }
 
 .project-item {
@@ -662,8 +460,8 @@ input:checked + .slider:before { transform: translateX(22px); }
 .project-item h3 {
   font-size: 18px;
   font-weight: 600;
-  margin: 0 0 10px 0;
   color: #000;
+  margin-bottom: 10px;
 }
 
 .project-desc {
@@ -697,17 +495,8 @@ input:checked + .slider:before { transform: translateX(22px); }
   text-decoration: underline;
 }
 
-/* Responsive adjustment for small screens */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Social Links Card */
+/* Social Links Component */
 .social-card {
-  background: white;
-  padding: 24px;
-  border-radius: 24px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -721,7 +510,6 @@ input:checked + .slider:before { transform: translateX(22px); }
 .social-header h2 {
   font-size: 22px;
   font-weight: 700;
-  margin: 0;
 }
 
 .social-list {
@@ -753,7 +541,6 @@ input:checked + .slider:before { transform: translateX(22px); }
 }
 
 .social-left p {
-  margin: 0;
   font-size: 16px;
 }
 
@@ -766,82 +553,49 @@ input:checked + .slider:before { transform: translateX(22px); }
   color: #9ca3af;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* Global Mobile Responsiveness System */
 @media (max-width: 768px) {
   .parent {
-   width: 100%;
-    display: block;
-    
+    width: 95%;
   }
 
-  .div1, .div2, .div4, .div5, .div6, .div7, .div8, .div9 {
-   margin-top: 5px;
+  .main_body {
+    flex-direction: column; /* Stacks column sections on small viewports */
+    gap: 16px;
   }
 
-
-  .mainui{
-    width: 100%;
-    padding: 0px 10px;
-  }
-  .profile-image{
-    position: relative;
-    margin-top: 0px;
-  }
   .profile-container {
-    display: flex;
-    flex-direction: row; 
-    font-size: 0.8rem;
-    width: 90vw;
+    flex-direction: column; 
     align-items: center;
     text-align: center;
+    gap: 16px;
   }
-  .profile-content{
-    margin-top: 40px;
+
+  .profile-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    width: 100%;
   }
-  .linkedin-link{
-    visibility: hidden;
-  }
-  .focus-areas-container{
-    visibility: hidden;
-  }
-  .dark-mode-toggle{
-    visibility: hidden;
-  }
+
   .profile-top-row {
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    gap: 10px;
+    gap: 8px;
   }
 
   .profile-actions {
-    flex-direction: column;
+    justify-content: center;
     width: 100%;
   }
 
-  .action-group, .focus-areas-container {
-    width: 100%;
-    justify-content: center;
-  }
-  
   .focus-areas-container {
     margin-left: 0; 
   }
-    .div1{
-    height: 90px;
+
+  .timeline-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
-}         
+}

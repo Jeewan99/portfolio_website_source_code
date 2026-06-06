@@ -177,13 +177,12 @@ const socials = [
           </div>
         </div>
       </div>
+</div></div>
 
+   <div className="main_body">
+     <div className="rigntside">
+  
 
-
-
-
-
-    </div></div>
     <div class="div2"><section className="about-card">
       <div className="about-header">
         <IoPersonSharp size={20} className="about-icon" strokeWidth={3} />
@@ -213,30 +212,9 @@ const socials = [
         </p>
       </div>
     </section></div>
-    <div class="div4"><div className="exp-card">
-      <div className="exp-header">
-        <Briefcase size={22} strokeWidth={2.5} />
-        <h2>Experience</h2>
-      </div>
 
-      <div className="timeline-container">
-        {experiences.map((item, index) => (
-          <div className="timeline-item" key={index}>
-            {/* The Dot */}
-            <div className={`timeline-dot ${item.current ? 'active' : ''}`}></div>
-            
-            <div className="timeline-content">
-              <div className="text-group">
-                <h3>{item.title}</h3>
-                <p className="company">{item.company}</p>
-              </div>
-              <span className="year">{item.year}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div></div>
-    <div class="div5"><div className="tech-card">
+
+        <div class="div5"><div className="tech-card">
       <div className="tech-header">
         <div className="header-left">
           <Hammer size={20} />
@@ -263,48 +241,9 @@ const socials = [
         ))}
       </div>
     </div></div>
-    <div class="div6"><div className="edu-card">
-      <div className="edu-header">
-        <GraduationCap size={22} strokeWidth={2.5} />
-        <h2>Education</h2>
-      </div>
 
-      <div className="timeline-container">
-        {eduData.map((item, index) => (
-          <div className="timeline-item" key={index}>
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <div className="text-group">
-                <h3>{item.degree}</h3>
-                <p className="school">{item.school}</p>
-              </div>
-              <span className="year">{item.year}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div></div>
-    <div class="div7"><div className="cert-card">
-      <div className="cert-header">
-        <div className="header-left">
-          <Award size={22} strokeWidth={2.5} />
-          <h2>Certifications</h2>
-        </div>
-        <button className="view-all">View All <ChevronRight size={16} /></button>
-      </div>
 
-      <div className="cert-list">
-        {certs.map((cert, idx) => (
-          <div key={idx} className="cert-item">
-            <Award size={18} className="cert-icon" />
-            <div className="cert-info">
-              <h3>{cert.title}</h3>
-              <p>{cert.issuer} ({cert.year})</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div></div>
+    
     <div class="div8"><div className="projects-card">
       <div className="projects-header">
         <div className="header-left">
@@ -333,6 +272,91 @@ const socials = [
         ))}
       </div>
     </div></div>
+
+
+      
+     </div>
+     <div className="leftside">
+
+
+    <div class="div4"><div className="exp-card">
+      <div className="exp-header">
+        <Briefcase size={22} strokeWidth={2.5} />
+        <h2>Experience</h2>
+      </div>
+
+      <div className="timeline-container">
+        {experiences.map((item, index) => (
+          <div className="timeline-item" key={index}>
+            {/* The Dot */}
+            <div className={`timeline-dot ${item.current ? 'active' : ''}`}></div>
+            
+            <div className="timeline-content">
+              <div className="text-group">
+                <h3>{item.title}</h3>
+                <p className="company">{item.company}</p>
+              </div>
+              <span className="year">{item.year}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div></div>
+
+
+    
+    <div class="div6"><div className="edu-card">
+      <div className="edu-header">
+        <GraduationCap size={22} strokeWidth={2.5} />
+        <h2>Education</h2>
+      </div>
+
+      <div className="timeline-container">
+        {eduData.map((item, index) => (
+          <div className="timeline-item" key={index}>
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <div className="text-group">
+                <h3>{item.degree}</h3>
+                <p className="school">{item.school}</p>
+              </div>
+              <span className="year">{item.year}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div></div>
+
+
+
+
+    <div class="div7"><div className="cert-card">
+      <div className="cert-header">
+        <div className="header-left">
+          <Award size={22} strokeWidth={2.5} />
+          <h2>Certifications</h2>
+        </div>
+        <button className="view-all">View All <ChevronRight size={16} /></button>
+      </div>
+
+      <div className="cert-list">
+        {certs.map((cert, idx) => (
+          <div key={idx} className="cert-item">
+            <Award size={18} className="cert-icon" />
+            <div className="cert-info">
+              <h3>{cert.title}</h3>
+              <p>{cert.issuer} ({cert.year})</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div></div>
+
+
+
+
+
+
     <div class="div9"><div className="social-card">
       <div className="social-header">
         <Share2 size={22} strokeWidth={2.5} />
@@ -353,6 +377,25 @@ const socials = [
         ))}
       </div>
     </div></div>
+
+
+     </div>
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div> </div>  </>
   )
 }
