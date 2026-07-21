@@ -191,7 +191,7 @@ const socials = [
       
       <div className="about-content">
         <p>
-          I am a Full-Stack Software Engineer dedicated to crafting high-performance 
+          I am a Full-Stack Software Developer dedicated to crafting high-performance 
           digital solutions. With a core focus on the TypeScript/JavaScript and 
           Python ecosystems, I bridge the gap between robust back-end logic and 
           intuitive, SEO-optimized front-end experiences.
