@@ -154,7 +154,7 @@ const socials = [
         
         </div>
 
-        <h2 className="profile-title">Full-Stack Software Engineer</h2>
+        <h2 className="profile-title">Full-Stack Software Developer</h2>
 
         <div className="profile-actions">
           <div className="action-group">
